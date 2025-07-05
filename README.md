@@ -1,127 +1,130 @@
-#  Claude Code Dev Container
+👉 日本語版はこちら: [README.ja.md](./README.ja.md)
 
-このリポジトリは、[Claude Code CLI](https://docs.anthropic.com/claude/docs/claude-code) を **VS Code の Dev Container 環境** に簡単にセットアップできるテンプレートです。
+# 🚀 Claude Code Dev Container
 
->  **Dev Container とは？**  
-> Visual Studio Code (VS Code) の機能の一つで、特定のツールや設定が用意された開発用コンテナ環境を自動で構築・起動できます。  
-> 通常のPC環境にソフトを個別インストールする必要がなく、すぐに開発が始められる便利な仕組みです。
+This repository provides a ready-to-use template for setting up the [Claude Code CLI](https://docs.anthropic.com/claude/docs/claude-code) in a **VS Code Dev Container** environment.
 
----
-
-##  セットアップ手順
-
-### 1️. 事前準備
-
-以下を事前にインストールしてください：
-
-| ツール | 用途 | インストールリンク |
-|-------|------|-------------------|
-| [Visual Studio Code](https://code.visualstudio.com/) | ソースコード編集・Dev Container 対応エディタ | ✅ 必須 |
-| [Dev Containers 拡張機能](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) | Dev Containerを扱うVS Code拡張 | ✅ 必須 |
-| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Dev Container の実行に必要なコンテナ実行環境 | ✅ 必須（ローカル開発時） |
-
->  GitHub Codespaces を使う場合は Docker Desktop のインストールは不要です。
+> 🧑‍💻 **What is a Dev Container?**  
+> A Dev Container is a feature of Visual Studio Code (VS Code) that allows you to automatically set up a complete development environment inside a container, with all tools and configurations pre-installed.  
+> It simplifies the setup process and makes development more portable and reproducible.
 
 ---
 
-### 2️ Dev Container の起動
+## ⚙️ Setup Instructions
 
-1. このリポジトリを VS Code で開きます。
-2. コマンドパレット（`Cmd+Shift+P` または `Ctrl+Shift+P`）で `Reopen in Container` を実行。
-3. 自動的に Claude Code CLI がセットアップされ、`claude` コマンドが使えるようになります。
+### 1️⃣ Prerequisites
+
+Please install the following tools before starting:
+
+| Tool | Purpose | Download Link |
+|------|---------|---------------|
+| [Visual Studio Code](https://code.visualstudio.com/) | Main editor supporting Dev Containers | ✅ Required |
+| [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) | VS Code extension for containerized environments | ✅ Required |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Required runtime for local containers | ✅ Required (for local use) |
+
+> 💡 If you're using **GitHub Codespaces**, you do not need to install Docker Desktop locally.
 
 ---
 
-### 3️. APIキーの設定
+### 2️⃣ Launching the Dev Container
 
-初回に `claude` コマンドを実行すると、APIキーの入力が求められます。指示に従って入力してください。
+1. Open this repository in VS Code.
+2. Open the command palette (`Cmd+Shift+P` or `Ctrl+Shift+P`) and select `Reopen in Container`.
+3. The Dev Container will automatically install Claude Code CLI, and the `claude` command will become available.
 
 ---
 
-##  基本的な使い方
+### 3️⃣ Setting the API Key
 
-ターミナルを開いて以下を実行します：
+The first time you run the `claude` command, you’ll be prompted to enter your API key.  
+Follow the instructions in the terminal to complete the setup.
+
+---
+
+## 🖥️ Basic Usage
+
+Open a terminal in VS Code and run:
 
 ```bash
 claude
 ```
 
-初回起動時は、以下のコマンドを使ってセットアップを行います（順番に実行してください）：
+During the initial setup, you can run the following commands (in order):
 
-| コマンド | 内容 |
-|---------|------|
-| `/init` | CLAUDE.md を作成してプロジェクトの仕様を記述 |
-| `/terminal-setup` | ターミナル補完などの初期設定 |
-| `/install-github-app` | GitHub Actions連携のセットアップ（任意） |
-| `/migrate-installer` | グローバルインストールからの移行処理（任意） |
+| Command | Description |
+|---------|-------------|
+| `/init` | Creates `CLAUDE.md` and defines your project specifications |
+| `/terminal-setup` | Sets up terminal integration and enhancements |
+| `/install-github-app` | (Optional) Sets up GitHub Actions integration |
+| `/migrate-installer` | (Optional) Migrates from global to local install |
 
-> ⌨️ **ショートカット例**  
-> - `Cmd+Esc`（Mac）または `Ctrl+Esc`（Windows）で Claude Code を起動  
-> - `Ctrl+Alt+K` で @File 参照を挿入
+> ⌨️ **Helpful Shortcuts**  
+> - `Cmd+Esc` (Mac) or `Ctrl+Esc` (Windows) to launch Claude Code  
+> - `Ctrl+Alt+K` to insert `@File` references
 
 ---
 
-##  Claudeの活用例：簡単なスクリプト作成
+## 🛠 Example: Create a Simple Script Using Claude
 
-1. `claude` を起動
-2. `/init` を実行して CLAUDE.md を作成
-3. 以下のように依頼：
+1. Launch `claude`
+2. Run `/init` to generate `CLAUDE.md`
+3. Ask Claude:
    ```
    create a bash script that backs up my project folder
    ```
-4. Claudeの提案を確認・保存
-5. 実際にスクリプトを実行して動作確認
+4. Review and save the suggested script
+5. Run the script and verify its behavior
 
 ---
 
-##  Claudeでアプリ開発を進める例
+## 💡 Example: Building an App with Claude
 
-1. `claude` を起動
-2. `/init` を実行して CLAUDE.md に仕様を記述
-3. Claudeに依頼：
+1. Start `claude`
+2. Run `/init` and write your app specifications in `CLAUDE.md`
+3. Ask Claude:
    ```
-   上記仕様書に基づいてFlutterプロジェクトを設計・実装して
+   Based on the above specs, design and implement a Flutter project
    ```
-4. Claudeの提案をレビュー・改善依頼
-5. モジュール単位で分けて依頼し、テストコードも生成してもらう
+4. Review Claude’s suggestions and ask for improvements if needed
+5. Divide implementation into modules and generate test code as well
 
 ---
 
-##  ディレクトリ構成
+## 📁 Directory Structure
 
-| ファイル/ディレクトリ | 内容 |
-|---------------------|------|
-| `.devcontainer/devcontainer.json` | Claude CLIを含むDev Container構成。PATH設定済み。 |
-| `.devcontainer/README.md` | このテンプレートの説明書。 |
-
----
-
-## ⚠ 注意事項
-
-- `claude` コマンドは Dev Container 起動時に自動で使えるようになります。
-- **npx や npm 経由ではなく**、必ず Dev Container 内で `claude` を実行してください。
-- Claude の提案は必ずレビューを行い、**安全で正確なコードのみを採用**してください。
-- Claude Code VS Code 拡張を使用する場合、インストール後 `Cmd+Esc` で起動可能です。
+| File / Directory | Description |
+|------------------|-------------|
+| `.devcontainer/devcontainer.json` | Dev Container settings with Claude CLI configured |
+| `.devcontainer/README.md` | Documentation for the container setup |
 
 ---
 
-## 🛠 トラブルシューティング
+## ⚠️ Notes
 
-### Dev Container が起動しない場合
-
-- Docker Desktop が起動していることを確認してください
-- VS Code の Dev Containers 拡張がインストール・有効になっていることを確認してください
-- 再起動後に `Reopen in Container` を再試行してください
-
----
-
-##  参考リンク
-
-- [Dev Container Features 公式仕様](https://containers.dev/implementors/features/)
-- [Claude Code ドキュメント](https://docs.anthropic.com/claude/docs/claude-code)
-- [Claude Code セキュリティガイド](https://docs.anthropic.com/claude/docs/claude-code-security)
-- [Claude Code IDE 統合](https://docs.anthropic.com/claude/docs/claude-code-ide-integrations)
+- The `claude` command is automatically available after the Dev Container starts.
+- **Do not use npx or npm**. Always run `claude` inside the Dev Container.
+- Always **review Claude's output** and verify its safety and correctness before use.
+- If using the Claude Code VS Code extension, you can launch it with `Cmd+Esc`.
 
 ---
 
-> ご意見・フィードバックは Issue や Pull Request にてお寄せください 
+## 🧪 Troubleshooting
+
+### Dev Container won't start?
+
+- Ensure Docker Desktop is running
+- Check that the Dev Containers extension is installed and enabled
+- Try restarting VS Code and run `Reopen in Container` again
+
+---
+
+## 📚 Resources
+
+- [Dev Container Features Spec](https://containers.dev/implementors/features/)
+- [Claude Code Documentation](https://docs.anthropic.com/claude/docs/claude-code)
+- [Claude Code Security Guide](https://docs.anthropic.com/claude/docs/claude-code-security)
+- [Claude Code IDE Integrations](https://docs.anthropic.com/claude/docs/claude-code-ide-integrations)
+
+---
+
+> 💬 Feedback and contributions are welcome via Issues or Pull Requests.

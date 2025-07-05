@@ -4,7 +4,10 @@
     "dockerfile": "Dockerfile"
   },
   "features": {
-    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0.5": {}
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:latest": {}
   },
   "customizations": {
     "vscode": {
@@ -13,6 +16,6 @@
       }
     }
   },
-  "postCreateCommand": "export PATH=$(npm bin -g):$PATH && echo $PATH && claude-code --version || echo 'Claude Code CLI not found in PATH. Consider linking manually.'",
+  "postCreateCommand": "which claude || echo 'Claude CLI not found' && claude --version || echo 'Please run claude command to initialize'",
   "remoteUser": "vscode"
 }
